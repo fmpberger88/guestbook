@@ -30,7 +30,7 @@ class Comment
     #[ORM\JoinColumn(nullable: false)]
     private ?Conference $conference = null;
 
-    #[ORM\Column(length: 255)]
+    #[ORM\Column(length: 255, nullable: true)]
     private ?string $photoFilename = null;
 
     public function getId(): ?int
@@ -103,7 +103,7 @@ class Comment
         return $this->photoFilename;
     }
 
-    public function setPhotoFilename(string $photoFilename): static
+    public function setPhotoFilename(?string $photoFilename): static
     {
         $this->photoFilename = $photoFilename;
 
